@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
-use App\Http\Resources\Book as BookResource;
+use App\Http\Resources\Books as BookResource;
 
 class BookController extends Controller
 {
@@ -25,7 +25,7 @@ class BookController extends Controller
 
     public function index()
     {
-        $criteria = Book::paginate(3);
+        $criteria = Book::paginate(6);
         $data = new BookResource($criteria);
         return $data;
     }

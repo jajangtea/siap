@@ -2,12 +2,12 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class Category extends JsonResource
+class Books extends ResourceCollection
 {
     /**
-     * Transform the resource into an array.
+     * Transform the resource collection into an array.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
@@ -15,8 +15,8 @@ class Category extends JsonResource
     public function toArray($request)
     {
         return [
-            'status' => 'Sukses',
-            'message' => 'Kategori',
+            'status' => 'success',
+            'message' => 'books data',
             'data' => parent::toArray($request),
         ];
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-use App\Http\Resources\Category as CategoryResourceCollection;
+use App\Http\Resources\Categories as CategoryResource;
 
 class CategoryController extends Controller
 {
@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
+        $criteria = Category::paginate(4);
+        return new CategoryResource($criteria);
     }
 
     public function random($count)
@@ -24,7 +25,7 @@ class CategoryController extends Controller
             ->inRandomOrder()
             ->limit($count)
             ->get();
-        return new CategoryResourceCollection($criteria);
+        return new CategoryResource($criteria);
     }
 
     /**
